@@ -1,4 +1,4 @@
-# (c) @AbirHasan2005
+ reply_to_message_id# (c) @AbirHasan2005
 
 # This is Telegram Video Watermark Adder Bot's Source Code.
 # I Hardly Made This. So Don't Forget to Give Me Credits.
@@ -189,7 +189,7 @@ async def VidWatermarkAdder(bot, cmd):
 	## --- Done --- ##
 	try:
 		forwarded_video = await cmd.forward(Config.LOG_CHANNEL)
-		logs_msg = await bot.send_message(chat_id=Config.LOG_CHANNEL, text=f"Download Started!\n\n{user_info}", reply_to_id=forwarded_video.id, disable_web_page_preview=True, parse_mode=enums.ParseMode.HTML, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Ban User", callback_data=f"ban_{cmd.from_user.id}")]]))
+		logs_msg = await bot.send_message(chat_id=Config.LOG_CHANNEL, text=f"Download Started!\n\n{user_info}", reply_to_message_id=forwarded_video.id, disable_web_page_preview=True, parse_mode=enums.ParseMode.HTML, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Ban User", callback_data=f"ban_{cmd.from_user.id}")]]))
 		await asyncio.sleep(5)
 		c_time = time.time()
 		the_media = await bot.download_media(
@@ -335,7 +335,7 @@ async def VidWatermarkAdder(bot, cmd):
 	await editable.delete()
 	forward_vid = await sent_vid.forward(Config.LOG_CHANNEL)
 	await logs_msg.delete()
-	await bot.send_message(chat_id=Config.LOG_CHANNEL, text=f"#WATERMARK_ADDED: Video Uploaded!\n\n{user_info}", reply_to_id=forward_vid.id, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Ban User", callback_data=f"ban_{cmd.from_user.id}")]]))
+	await bot.send_message(chat_id=Config.LOG_CHANNEL, text=f"#WATERMARK_ADDED: Video Uploaded!\n\n{user_info}", reply_to_message_id=forward_vid.id, reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Ban User", callback_data=f"ban_{cmd.from_user.id}")]]))
 
 
 @AHBot.on_message(filters.command("cancel") & filters.private)
