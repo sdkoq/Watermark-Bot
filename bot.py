@@ -174,7 +174,7 @@ async def VidWatermarkAdder(bot, cmd):
 		await cmd.reply_text("Sorry, Currently I am busy with another Task!\n\nTry Again After Sometime!")
 		return
 	preset = Config.PRESET
-	editable = await cmd.reply_text("Downloading Video ...", parse_mode="Markdown")
+	editable = await cmd.reply_text("Downloading Video ...", parse_mode=enums.ParseMode.HTML)
 	with open(status, "w") as f:
 		statusMsg = {
 			'chat_id': cmd.from_user.id,
