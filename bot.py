@@ -24,6 +24,7 @@ from PIL import Image
 from core.ffmpeg import vidmark
 from core.clean import delete_all, delete_trash
 from pyrogram import Client, filters
+from pyrogram import enums
 from configs import Config
 from core.handlers.main_db_handler import db
 from core.display_progress import progress_for_pyrogram, humanbytes
